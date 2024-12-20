@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKPH Calculator & Tire Pressure Monitor</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase and JS script -->
+    <script src="Tyre_Tech_hub.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="logo1.png" alt="Logo" style="vertical-align: middle; width: 120px; height: auto;"/>
+        <li style="display: inline; font-size: 24px; color: #ffffff; font-weight: 600; margin-left: -27px; vertical-align: bottom;">Tyre Tech Hub</li>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="banner">
+        <div class="text-box">
+            <h1>The Future of Tyre Maintenance for Dumper Fleets</h1>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="border">
+        <div class="info-head">
+            <h2>About Tyre Tech Hub</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="info-box">
+            <p>Welcome to Tyre Tech Hub, your go-to solution for smarter tyre management. We specialize in providing real-time monitoring and maintenance for dumper tyres using advanced IIoT (Industrial Internet of Things) technology.</p>
+            <p>Our system tracks key tyre parameters like pressure and temperature, giving you the insights needed to keep your operations running smoothly and safely.</p>
+            <p>With our easy-to-use, cloud-based platform, you can monitor tyre health, receive instant alerts about potential issues, and make data-driven decisions for optimal performance. By analyzing Tyre Key Performance Data (TKPH), our system helps ensure that the right tyres are used under the right conditions, improving safety, reducing downtime, and extending tyre life.</p>
+        </div>
+    </div>
+
+    <!-- Tire Pressure Monitoring Widget -->
+    <div class="widget1">
+        <div class="container1">
+            <h2 class="title">Tire Pressure Readings</h2>
+            <ul>
+                <li>
+                    <h3>TIRE 1</h3>
+                    <span id="pressure1">32 PSI</span>
+                </li>
+                <li>
+                    <h3>TIRE 2</h3>
+                    <span id="pressure2">30 PSI</span>
+                </li>
+                <li>
+                    <h3>TIRE 3</h3>
+                    <span id="pressure3">29 PSI</span>
+                </li>
+                <li>
+                    <h3>TIRE 4</h3>
+                    <span id="pressure4">31 PSI</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Tire Temperature Monitoring Widget -->
+    <div class="widget1">
+        <div class="container">
+            <h2 class="title">Tire Temperature Readings</h2>
+            <ul>
+                <li>
+                    <h3>TIRE 1</h3>
+                    <span id="Temperature1">32°C</span>
+                </li>
+                <li>
+                    <h3>TIRE 2</h3>
+                    <span id="Temperature2">30°C</span>
+                </li>
+                <li>
+                    <h3>TIRE 3</h3>
+                    <span id="Temperature3">29°C</span>
+                </li>
+                <li>
+                    <h3>TIRE 4</h3>
+                    <span id="Temperature4">31°C</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TKPH Calculator -->
+    <div class="container" id="tkphCalculator">
+        <h2 class="title">TKPH Calculator</h2>
+        <label for="emptyLoad">Empty Load (kg): </label>
+        <input type="number" id="emptyLoad" placeholder="Enter empty load in kg"><br><br>
+    
+        <label for="loadedLoad">Loaded Load (kg): </label>
+        <input type="number" id="loadedLoad" placeholder="Enter loaded load in kg"><br><br>
+    
+        <label for="operatingHours">Operating Hours per Day (hours): </label>
+        <input type="number" id="operatingHours" placeholder="Enter operating hours per day"><br><br>
+    
+        <label for="cyclesPerDay">Number of Cycles per Day: </label>
+        <input type="number" id="cyclesPerDay" placeholder="Enter number of cycles per day"><br><br>
+    
+        <label for="distancePerCycle">Distance per Cycle (km): </label>
+        <input type="number" id="distancePerCycle" placeholder="Enter distance per cycle (in km)"><br><br>
+    
+        <button onclick="calculateTKPH()">Calculate TKPH</button>
+        <button onclick="resetForm()">Reset</button><br><br>
+    
+        <!-- Display Results -->
+        <h3>Results:</h3>
+        <p id="result"></p>
+    </div>
+
+    <!-- Product Section -->
+    <div class="container products">
+        <div class="product">
+            <h4>Standard Compound Tyres for 550-700 TKPH</h4>
+            <p>Designed for maximum durability and performance.</p>
+            <table border="1" style="font-size: 12px;" align="center">
+                <tr>
+                    <th>Size</th>
+                    <th>TKPH</th>
+                    <th>Version</th>
+                </tr>
+                <tr>
+                    <td>27.00 R 49</td>
+                    <td>590</td>
+                    <td>STANDARD COMPOUND</td>
+                </tr>
+                <tr>
+                    <td>30.00 R 51</td>
+                    <td>610</td>
+                    <td>STANDARD COMPOUND</td>
+                </tr>
+            </table>
+        </div>
+        <div class="product">
+            <h4>Cut-Resistant Compound Tyres for 450-500 TKPH</h4>
+            <p>Engineered for Extended Service Life in Demanding Operations</p>
+            <table border="1" style="font-size: 12px;" align="center">
+                <tr>
+                    <th>Size</th>
+                    <th>TKPH</th>
+                    <th>Version</th>
+                </tr>
+                <tr>
+                    <td>30.00 R 51</td>
+                    <td>500</td>
+                    <td>CUT RESISTANT COMPOUND</td>
+                </tr>
+                <tr>
+                    <td>27.00 R 49</td>
+                    <td>455</td>
+                    <td>CUT RESISTANT COMPOUND</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="product">
+            <h4>Heat-Resistant Compound Tyres for 700-800 TKPH</h4>
+            <p>Engineered for Heat Resistance, Stability, and Long Life in the Toughest Conditions</p>
+            <table border="1" style="font-size: 12px;" align="center">
+                <tr>
+                    <th>Size</th>
+                    <th>TKPH</th>
+                    <th>Version</th>
+                </tr>
+                <tr>
+                    <td>30.00 R 51</td>
+                    <td>725</td>
+                    <td>HEAT RESISTANT COMPOUND</td>
+                </tr>
+                <tr>
+                    <td>33.00 R 51</td>
+                    <td>800</td>
+                    <td>HEAT RESISTANT COMPOUND</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tyre Tech Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- External JS -->
+    <script src="Tyre_Tech_hub.js"></script> <!-- Link to external JavaScript file -->
+
+</body>
+</html>
