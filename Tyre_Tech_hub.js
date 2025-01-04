@@ -8,32 +8,44 @@ var firebaseConfig = {
     messagingSenderId: "269127952242",
     appId: "1:269127952242:web:53d16ca1d42d38504a5feb"
 };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database
 var database = firebase.database();
 
-// Function to update tire temperature from Firebase (for Tire 1)
-function updateTireTemperature() {
-    // Reference to the temperature data for Tire 1 in Firebase
-    var tire1TempRef = database.ref('sensor/temperature'); // Make sure this path matches your Firebase structure
+// Function to update tire temperature and pressure from Firebase
+function updateTireData() {
+    // Reference to the sensor data (pressure and temperature)
+    var sensorRef = database.ref('sensor');
 
-    // Real-time listener for Tire 1 temperature
-    tire1TempRef.on('value', function(snapshot) {
-        var tire1Temp = snapshot.val();
-        console.log('Fetched Tire 1 Temp:', tire1Temp);  // Log to check if the data is fetched
+    // Real-time listener for tire data
+    sensorRef.on('value', function(snapshot) {
+        var data = snapshot.val();
 
-        // Update UI with the retrieved temperature
-        if (tire1Temp !== null) {
-            document.getElementById('Temperature1').innerText = tire1Temp.toFixed(2) + '°C';
-        } else {
-            document.getElementById('Temperature1').innerText = 'No data available';
+        // Fetch pressure and temperature for Tire 1
+        if (data) {
+            var pressure1 = data.pressure;
+            var temperature1 = data.temperature;
+
+            // Update UI with the retrieved data
+            if (pressure1 !== null) {
+                document.getElementById('pressure1').innerText = pressure1 + ' PSI';
+            } else {
+                document.getElementById('pressure1').innerText = 'No data available';
+            }
+
+            if (temperature1 !== null) {
+                document.getElementById('Temperature1').innerText = temperature1 + '°C';
+            } else {
+                document.getElementById('Temperature1').innerText = 'No data available';
+            }
         }
     });
 }
 
-// Initialize the tire temperature update function
-updateTireTemperature();
+// Call the function to update tire data initially
+updateTireData();
 
 // TKPH Calculation Logic
 function calculateTKPH() {
