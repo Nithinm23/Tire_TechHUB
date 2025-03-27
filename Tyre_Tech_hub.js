@@ -30,7 +30,7 @@ function updateTireData() {
 
             // Update UI with the retrieved data
             if (pressure1 !== null) {
-                document.getElementById('pressure1').innerText = pressure1 + ' PSI';
+                document.getElementById('Tire 1').innerText = pressure1 + ' PSI';
             } else {
                 document.getElementById('pressure1').innerText = 'No data available';
             }
