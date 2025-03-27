@@ -36,4 +36,10 @@
   - Firebase (for real-time database, authentication, and hosting)
 
 ---
-https://github.com/your-username/Tire_TechHUB.git
+## 🏗️ **Installation Guide**
+
+To get the project running locally on your machine, follow the steps below:
+
+### 1. **Clone the Repository**:
+   ```bash
+   git clone https://nithinm23.github.io/Tire_TechHUB/
