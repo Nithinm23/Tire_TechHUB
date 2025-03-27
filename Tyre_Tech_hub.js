@@ -1,6 +1,6 @@
 // Firebase configuration (use your actual Firebase config)
 var firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
+    apiKey: "AIzaSyC9xBA-9YeXho9rSsTBIfEIbfQ_8zIHkN8",
     authDomain: "tyre-tech-hub.firebaseapp.com",
     databaseURL: "https://tyre-tech-hub-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "tyre-tech-hub",
