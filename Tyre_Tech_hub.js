@@ -4,7 +4,7 @@ var firebaseConfig = {
     authDomain: "tyre-tech-hub.firebaseapp.com",
     databaseURL: "https://tyre-tech-hub-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "tyre-tech-hub",
-    storageBucket: "tyre-tech-hub.appspot.com",
+    storageBucket: "tyre-tech-hub.firebasestorage.app",
     messagingSenderId: "269127952242",
     appId: "1:269127952242:web:53d16ca1d42d38504a5feb"
 };
