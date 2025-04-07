@@ -122,4 +122,3 @@ TyreTech Hub combines hardware and software to provide an efficient and accurate
 
 ---
 
-This version now uses plain formatting as requested, removing the bold asterisks. Let me know if you'd like any further adjustments!
