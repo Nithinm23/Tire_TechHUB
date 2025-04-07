@@ -1,4 +1,4 @@
-# 🚗 **Tire_TechHUB** 🚗
+# 🚗 **Tire_Tech_HUB** 🚗
 
 ## **TyreTech Hub: Real-Time Monitoring and Maintenance System for Dumper Tyres**
 
