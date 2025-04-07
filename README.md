@@ -74,8 +74,8 @@ TyreTech Hub provides a comprehensive solution for monitoring and maintaining du
 
 - **Hardware**:
   - **ESP8266**: Wireless communication module to send sensor data to the cloud.
-  - **DHT22**: Temperature sensor used to monitor tyre temperature.
-  - **BMP180/BMP280**: Air pressure sensor used to monitor tyre pressure.
+  - **Ds18b20**: Temperature sensor used to monitor tyre temperature.
+  - **HX710b**: Air pressure sensor used to monitor tyre pressure.
 
 ---
 
